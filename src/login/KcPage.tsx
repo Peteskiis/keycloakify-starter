@@ -7,6 +7,7 @@ import Template from "keycloakify/login/Template";
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
 );
+import "./main.css";
 
 const doMakeUserConfirmPassword = true;
 
