@@ -8,7 +8,7 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-    const { url, messagesPerField, recaptchaRequired, recaptchaSiteKey, termsAcceptanceRequired } = kcContext;
+    const { url, messagesPerField, recaptchaRequired, recaptchaSiteKey, termsAcceptanceRequired, profile } = kcContext;
 
     return (
         <Template {...{ kcContext, i18n, doUseDefaultCss, classes }} headerNode={<></>}>
@@ -30,6 +30,11 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                         }}
                     >
                         <div className="login-input-group">
+                            {/* Hidden fields for required attributes that we don't want to display */}
+                            <input type="hidden" name="firstName" value="" />
+                            <input type="hidden" name="lastName" value="" />
+                            <input type="hidden" name="username" value={profile?.attributesByName?.email?.value ?? ""} />
+
                             <input
                                 type="email"
                                 id="email"
@@ -37,9 +42,11 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                                 className="login-input"
                                 placeholder="Email address"
                                 autoComplete="email"
-                                required
+                                defaultValue={profile?.attributesByName?.email?.value ?? ""}
                                 aria-invalid={messagesPerField.existsError("email")}
                             />
+                            {messagesPerField.existsError("email") && <span className="error-message">{messagesPerField.get("email")}</span>}
+
                             <input
                                 type="password"
                                 id="password"
@@ -47,9 +54,10 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                                 className="login-input"
                                 placeholder="Password"
                                 autoComplete="new-password"
-                                required
                                 aria-invalid={messagesPerField.existsError("password")}
                             />
+                            {messagesPerField.existsError("password") && <span className="error-message">{messagesPerField.get("password")}</span>}
+
                             <input
                                 type="password"
                                 id="password-confirm"
@@ -57,9 +65,11 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                                 className="login-input"
                                 placeholder="Confirm Password"
                                 autoComplete="new-password"
-                                required
                                 aria-invalid={messagesPerField.existsError("password-confirm")}
                             />
+                            {messagesPerField.existsError("password-confirm") && (
+                                <span className="error-message">{messagesPerField.get("password-confirm")}</span>
+                            )}
                         </div>
 
                         {recaptchaRequired && <div className="g-recaptcha" data-sitekey={recaptchaSiteKey} data-size="compact"></div>}
