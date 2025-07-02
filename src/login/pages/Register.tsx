@@ -50,6 +50,16 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                                 required
                                 aria-invalid={messagesPerField.existsError("password")}
                             />
+                            <input
+                                type="password"
+                                id="password-confirm"
+                                name="password-confirm"
+                                className="login-input"
+                                placeholder="Confirm Password"
+                                autoComplete="new-password"
+                                required
+                                aria-invalid={messagesPerField.existsError("password-confirm")}
+                            />
                         </div>
 
                         {recaptchaRequired && <div className="g-recaptcha" data-sitekey={recaptchaSiteKey} data-size="compact"></div>}

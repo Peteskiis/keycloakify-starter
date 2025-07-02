@@ -6,6 +6,7 @@ import DefaultPage from "keycloakify/login/DefaultPage";
 import Template from "keycloakify/login/Template";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import LoginResetPassword from "./pages/LoginResetPassword";
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
 );
@@ -35,6 +36,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
                     case "register.ftl":
                         return (
                             <Register
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-reset-password.ftl":
+                        return (
+                            <LoginResetPassword
                                 kcContext={kcContext}
                                 i18n={i18n}
                                 classes={classes}
