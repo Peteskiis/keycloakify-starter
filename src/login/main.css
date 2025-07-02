@@ -1,3 +1,257 @@
-.kcFormHeaderClass {
-    border: 3px solid red;
+.login-container {
+    max-width: 384px;
+    margin: 0 auto;
+    padding: 16px;
+    position: relative;
+    background: none;
+}
+
+.header-container {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: white;
+}
+
+.header-logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.login-header {
+    text-align: center;
+    color: black;
+    font-size: 1.875rem;
+    font-weight: 300;
+    line-height: 2.5rem;
+    margin: 40px 0 70px 0;
+}
+
+.login-form-container {
+    margin-bottom: 60px;
+}
+
+.login-input-group {
+    margin-bottom: 76px;
+}
+
+.login-input {
+    width: 100%;
+    height: 48px;
+    background-color: #fafaf9;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+    padding: 0 21px;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.login-input:last-child {
+    margin-bottom: 0;
+}
+
+.login-input::placeholder {
+    color: #a1a1aa;
+}
+
+.login-button {
+    width: 100%;
+    height: 48px;
+    background-color: #171717;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 300;
+    cursor: pointer;
+    margin-bottom: 78px;
+}
+
+.signup-link {
+    text-align: center;
+    margin-bottom: 53px;
+}
+
+.signup-text {
+    color: #0c0a09;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.signup-link-text {
+    color: #3b82f6;
+    font-size: 1rem;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.divider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+.divider-text {
+    margin: 0 20px;
+    color: black;
+    font-size: 0.75rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+    padding: 0 23px;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 34px;
+    overflow: hidden;
+}
+
+.apple-icon {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    /* Simplified Apple icon representation */
+}
+
+.footer-links {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.footer-link {
+    color: #52525b;
+    font-size: 0.875rem;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.footer-separator {
+    color: #52525b;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0 8px;
+}
+
+.checkbox-container {
+    margin-bottom: 20px;
+}
+
+.terms-text {
+    font-size: 0.875rem;
+    color: #0c0a09;
+    margin-left: 8px;
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Style UserProfileFormFields inputs */
+.login-input-group input {
+    width: 100%;
+    height: 48px;
+    background-color: #fafaf9;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+    padding: 0 21px;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.login-input-group input::placeholder {
+    color: #a1a1aa;
+}
+
+/* Remove default Keycloak background */
+body {
+    background: white !important;
+    background-image: none !important;
+    padding-top: 80px;
+}
+
+#kc-page-title {
+    display: none !important;
+}
+
+.card-pf {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Hide Keycloak header and realm name */
+#kc-header {
+    display: none !important;
+}
+
+#kc-header-wrapper {
+    display: none !important;
+}
+
+.kc-logo-text {
+    display: none !important;
+}
+
+h1#kc-page-title {
+    display: none !important;
+}
+
+.login-pf-header {
+    display: none !important;
+}
+
+.login-pf-header h1 {
+    display: none !important;
 }
