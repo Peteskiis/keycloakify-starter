@@ -31,8 +31,8 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                     >
                         <div className="login-input-group">
                             {/* Hidden fields for required attributes that we don't want to display */}
-                            <input type="hidden" name="firstName" value="" />
-                            <input type="hidden" name="lastName" value="" />
+                            <input type="hidden" name="firstName" value=" " />
+                            <input type="hidden" name="lastName" value=" " />
                             <input type="hidden" name="username" value={profile?.attributesByName?.email?.value ?? ""} />
 
                             <input
