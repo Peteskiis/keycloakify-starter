@@ -30,10 +30,29 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                         }}
                     >
                         <div className="login-input-group">
-                            {/* Hidden fields for required attributes that we don't want to display */}
-                            <input type="hidden" name="firstName" value=" " />
-                            <input type="hidden" name="lastName" value=" " />
-                            <input type="hidden" name="username" value={profile?.attributesByName?.email?.value ?? ""} />
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                className="login-input"
+                                placeholder="First Name"
+                                autoComplete="given-name"
+                                defaultValue={profile?.attributesByName?.firstName?.value ?? ""}
+                                aria-invalid={messagesPerField.existsError("firstName")}
+                            />
+                            {messagesPerField.existsError("firstName") && <span className="error-message">{messagesPerField.get("firstName")}</span>}
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                className="login-input"
+                                placeholder="Last Name"
+                                autoComplete="family-name"
+                                defaultValue={profile?.attributesByName?.lastName?.value ?? ""}
+                                aria-invalid={messagesPerField.existsError("lastName")}
+                            />
+                            {messagesPerField.existsError("lastName") && <span className="error-message">{messagesPerField.get("lastName")}</span>}
 
                             <input
                                 type="email"
@@ -46,6 +65,24 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                                 aria-invalid={messagesPerField.existsError("email")}
                             />
                             {messagesPerField.existsError("email") && <span className="error-message">{messagesPerField.get("email")}</span>}
+
+                            {!kcContext.realm.registrationEmailAsUsername && (
+                                <>
+                                    <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        className="login-input"
+                                        placeholder="Username"
+                                        autoComplete="username"
+                                        defaultValue={profile?.attributesByName?.username?.value ?? ""}
+                                        aria-invalid={messagesPerField.existsError("username")}
+                                    />
+                                    {messagesPerField.existsError("username") && (
+                                        <span className="error-message">{messagesPerField.get("username")}</span>
+                                    )}
+                                </>
+                            )}
 
                             <input
                                 type="password"
